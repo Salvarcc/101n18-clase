@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+/* Paleta De Colores
+#131313
+#2D2440
+#5C23D9
+#411F8C
+#5321BF
+#2D1859
+ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color:antiquewhite;
+    background-color: #131313;
+    font-family: "Inter", sans-serif;
+    text-align: center;
+    list-style-position: inside; 
+}
+
+Header {
+    margin-bottom: 50px;
+    height: 100px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #2D2440;
+    color: white;
+}
+
+nav {
+    display: flex;
+    gap: 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: rgba(255,255,255,0.2);
+}
+
+div {
+    display: flex;
+}
+
+h1 {
+    font-size:40px;
+    margin-bottom: 15px;
+}
+h2 {
+    margin-bottom: 10px;
+}
+
+footer {
+    background-color: #411F8C; 
+    color: white;
+    padding: 40px 20px 20px;
+}
+
+.cards:hover {
+    background-color: #5321BF;
+    color:antiquewhite;
+}
+
+.cards{
+    color: #2D2440;
+    border: 5px solid #2D1859;
+    background-color: #2D2440;
+    width: 400px;
+    height: 200px;
+    margin: 20px auto;
+    font-size: 20px;
+    margin-bottom:100px;
+    box-shadow: 0px 0px 20px 10px #2D1859;
+    transition: background-color .5s;
+    transition: color .5s;
+    border-radius: 20px;
+}
+
+.link {
+    color: antiquewhite;
+    text-decoration: none;
+}
+
+.Red {
+    text-underline-offset: 5px;
+    margin-right: 20px;
+}
+
+#Redes{
+    filter: invert(1);
+}
+
+#About {
+    width: 800px;
+    height: 500px;
+    margin: 0 auto;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+#Sobre {
+    box-shadow: 0px 0px 15px 5px #5C23D9;
+    transition: transform 0.3s ease;
+    border-radius: 10px;
+}
+
+img:hover {
+    transform: scale(1.05);
+}
+
+#Mi {
+    margin: 20px auto;
+    margin-left: 30px;
+    width: 400px;
+    text-align: justify;
+    font-size: 20px;
+}
+
+#Contacto{
+    text-align: left;
+}
+
+#Cosas {
+    font-size: 30px;
+    margin-bottom: 60px;
+}
+
+#Final {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    flex: 1;
+}
+
+.footer-bottom {
+    text-align: center;
+    justify-content: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+.footer-section a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: #5C23D9;
+    padding-left: 5px; 
+}
