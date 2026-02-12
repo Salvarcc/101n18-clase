@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil Social</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #e94560;
+            --accent-soft: #ff6b86;
+            --text: #f1f1f1;
+            --text-muted: #a0a0a0;
+            --glow: rgba(233, 69, 96, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1rem;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(233, 69, 96, 0.1) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .profile-section {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .profile-image {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--accent), var(--accent-soft));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            box-shadow: 0 10px 40px var(--glow), 0 0 0 4px rgba(233, 69, 96, 0.2);
+            animation: float 3s ease-in-out infinite;
+            position: relative;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .profile-image::after {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--accent), var(--accent-soft), var(--accent));
+            z-index: -1;
+            opacity: 0;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0; transform: scale(1); }
+            50% { opacity: 0.3; transform: scale(1.1); }
+        }
+
+        .profile-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .profile-bio {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            max-width: 400px;
+            margin: 0 auto;
+            font-weight: 400;
+        }
+
+        .links-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .social-link {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 1.25rem 2rem;
+            text-decoration: none;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(233, 69, 96, 0.2), transparent);
+            transition: left 0.6s;
+        }
+
+        .social-link:hover::before {
+            left: 100%;
+        }
+
+        .social-link:hover {
+            background: rgba(233, 69, 96, 0.15);
+            border-color: var(--accent);
+            transform: translateX(8px);
+            box-shadow: 0 8px 30px var(--glow);
+        }
+
+        .link-content {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .link-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-soft));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            transition: transform 0.4s;
+        }
+
+        .social-link:hover .link-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .link-text {
+            text-align: left;
+        }
+
+        .link-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .link-subtitle {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .link-arrow {
+            font-size: 1.5rem;
+            color: var(--accent);
+            transition: transform 0.4s;
+        }
+
+        .social-link:hover .link-arrow {
+            transform: translateX(5px);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .decorative-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .orb-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--accent);
+            top: 10%;
+            left: -10%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .orb-2 {
+            width: 400px;
+            height: 400px;
+            background: var(--accent-soft);
+            bottom: -10%;
+            right: -10%;
+            animation: float 10s ease-in-out infinite reverse;
+        }
+
+        @media (max-width: 640px) {
+            .profile-name {
+                font-size: 2rem;
+            }
+
+            .social-link {
+                padding: 1rem 1.5rem;
+            }
+
+            .link-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .link-title {
+                font-size: 1rem;
+            }
+
+            .link-subtitle {
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Animaciones escalonadas para los enlaces */
+        .social-link:nth-child(1) { animation: fadeInUp 0.8s ease-out 0.3s both; }
+        .social-link:nth-child(2) { animation: fadeInUp 0.8s ease-out 0.4s both; }
+        .social-link:nth-child(3) { animation: fadeInUp 0.8s ease-out 0.5s both; }
+        .social-link:nth-child(4) { animation: fadeInUp 0.8s ease-out 0.6s both; }
+        .social-link:nth-child(5) { animation: fadeInUp 0.8s ease-out 0.7s both; }
+        .social-link:nth-child(6) { animation: fadeInUp 0.8s ease-out 0.8s both; }
+    </style>
+</head>
+<body>
+    <!-- Orbes decorativos -->
+    <div class="decorative-orb orb-1"></div>
+    <div class="decorative-orb orb-2"></div>
+
+    <div class="container">
+        <!-- Sección de Perfil -->
+        <div class="profile-section">
+            <div class="profile-image">
+                👋
+            </div>
+            <h1 class="profile-name">Tu Nombre</h1>
+            <p class="profile-bio">
+                Creador digital, diseñador y desarrollador. Compartiendo mi trabajo y conectando con el mundo.
+            </p>
+        </div>
+
+        <!-- Sección de Enlaces -->
+        <div class="links-section">
+            <a href="https://instagram.com/tuusuario" class="social-link" target="_blank">
+                <div class="link-content">
+                    <div class="link-icon">📸</div>
+                    <div class="link-text">
+                        <div class="link-title">Instagram</div>
+                        <div class="link-subtitle">@tuusuario</div>
+                    </div>
+                </div>
+                <div class="link-arrow">→</div>
+            </a>
+
+            <a href="https://twitter.com/tuusuario" class="social-link" target="_blank">
+                <div class="link-content">
+                    <div class="link-icon">🐦</div>
+                    <div class="link-text">
+                        <div class="link-title">Twitter / X</div>
+                        <div class="link-subtitle">Sígueme en X</div>
+                    </div>
+                </div>
+                <div class="link-arrow">→</div>
+            </a>
+
+            <a href="https://linkedin.com/in/tuusuario" class="social-link" target="_blank">
+                <div class="link-content">
+                    <div class="link-icon">💼</div>
+                    <div class="link-text">
+                        <div class="link-title">LinkedIn</div>
+                        <div class="link-subtitle">Conecta profesionalmente</div>
+                    </div>
+                </div>
+                <div class="link-arrow">→</div>
+            </a>
+
+            <a href="https://github.com/tuusuario" class="social-link" target="_blank">
+                <div class="link-content">
+                    <div class="link-icon">💻</div>
+                    <div class="link-text">
+                        <div class="link-title">GitHub</div>
+                        <div class="link-subtitle">Mis proyectos</div>
+                    </div>
+                </div>
+                <div class="link-arrow">→</div>
+            </a>
+
+            <a href="https://youtube.com/@tucanal" class="social-link" target="_blank">
+                <div class="link-content">
+                    <div class="link-icon">🎥</div>
+                    <div class="link-text">
+                        <div class="link-title">YouTube</div>
+                        <div class="link-subtitle">Suscríbete a mi canal</div>
+                    </div>
+                </div>
+                <div class="link-arrow">→</div>
+            </a>
+
+            <a href="mailto:tu@email.com" class="social-link">
+                <div class="link-content">
+                    <div class="link-icon">✉️</div>
+                    <div class="link-text">
+                        <div class="link-title">Email</div>
+                        <div class="link-subtitle">Contáctame directamente</div>
+                    </div>
+                </div>
+                <div class="link-arrow">→</div>
+            </a>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>© 2024 - Hecho con ❤️</p>
+        </div>
+    </div>
+</body>
+</html>
