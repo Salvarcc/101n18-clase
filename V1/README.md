@@ -4,24 +4,22 @@ Crea una aplicación web similar a linktree que tenga botones para mis redes soc
 
 ## Output
 ### Stack generado
-(indica qué conjunto de tecnologías decidió utilizar la IA)
+- Html, CSS
 
 ### Estilos
-- Librería o CSS
-- Layout (Responsive? Centrado? Grid? Flexbox?)
-- Colores (gradientes? solidos? cantidad de colores?)
-- Animaciones
+- CSS
+- Responsive con flex
+- Colores por la paleta de rosados
+- movimientos de las cartillas y la imagen principal
 
 ### Recursos
-- Iconos utilizados?
-- Emojis?
-- Imagenes?
+- 👋,📸,🐦,💼,💻,🎥,✉️,❤️
 
 ### Lógica
-- Librería / Framework / Vanilla JS?
+-Vanilla JS?
 
 ## Tokens
-- Input (caracteres del prompt / 4)
-- Output 1 (caracteres del artefacto / 4)
-- Output 2 (caracteres de la respuesta en el chat / 4)
-- Total: Input + Output 1 + Output 2
+- Input 32
+- Output 1 321
+- Output 2 3033
+- Total: 3386
